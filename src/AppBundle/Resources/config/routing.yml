@@ -1,3 +1,20 @@
-document_collection:
+documents_collection:
     path:       /documents
     defaults:   { _controller: AppBundle:Document:collection }
+
+documents_upload:
+    path:       /documents/upload
+    defaults:   { _controller: AppBundle:Document:upload }
+    methods:    [POST]
+
+documents_detail:
+    path:       /documents/{hash}
+    defaults:   { _controller: AppBundle:Document:detail }
+
+documents_show:
+    path:       /documents/{hash}/show
+    defaults:   { _controller: AppBundle:Document:show }
+
+documents_delete:
+    path:       /documents/{hash}/delete
+    defaults:   { _controller: AppBundle:Document:delete }

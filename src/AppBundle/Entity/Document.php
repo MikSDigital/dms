@@ -44,6 +44,13 @@ class Document
     private $filename;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mime", type="string", length=255)
+     */
+    private $mimeType;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="creation_date", type="datetime")
@@ -53,7 +60,7 @@ class Document
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="text")
+     * @ORM\Column(name="comment", type="text", nullable=true)
      */
     private $comment;
 
@@ -62,7 +69,21 @@ class Document
      *
      * @ORM\Column(name="checked_out", type="boolean")
      */
-    private $checkedOut;
+    private $checkedOut = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hash", type="string", length=255)
+     */
+    private $hash;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="original_name", type="string", length=255)
+     */
+    private $originalName;
 
     /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="documents")
@@ -261,5 +282,84 @@ class Document
     public function getTags()
     {
         return $this->tags;
+    }
+
+    public function setTags(ArrayCollection $tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Set hash
+     *
+     * @param string $hash
+     *
+     * @return Document
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Get hash
+     *
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * Set originalName
+     *
+     * @param string $originalName
+     *
+     * @return Document
+     */
+    public function setOriginalName($originalName)
+    {
+        $this->originalName = $originalName;
+
+        return $this;
+    }
+
+    /**
+     * Get originalName
+     *
+     * @return string
+     */
+    public function getOriginalName()
+    {
+        return $this->originalName;
+    }
+
+    /**
+     * Set mimeType
+     *
+     * @param string $mimeType
+     *
+     * @return Document
+     */
+    public function setMimeType($mimeType)
+    {
+        $this->mimeType = $mimeType;
+
+        return $this;
+    }
+
+    /**
+     * Get mimeType
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mimeType;
     }
 }

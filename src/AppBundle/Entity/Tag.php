@@ -32,14 +32,7 @@ class Tag
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     */
-    private $slug;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="color", type="string", length=255, unique=true)
+     * @ORM\Column(name="color", type="string", length=255, unique=true, nullable=true)
      */
     private $color;
 
@@ -85,30 +78,6 @@ class Tag
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Tag
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
