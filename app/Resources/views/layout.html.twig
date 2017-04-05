@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link href="{{ asset('assets/app.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ asset('assets/app.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                {% block content %}{% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

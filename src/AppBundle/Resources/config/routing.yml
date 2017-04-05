@@ -1,0 +1,3 @@
+document_collection:
+    path:       /documents
+    defaults:   { _controller: AppBundle:Document:collection }
